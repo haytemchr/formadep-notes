@@ -1,0 +1,11 @@
+__pycache__/
+dist/
+*.pyc
+*.pth
+.venv/
+.vscode/
+env/
+*.egg-info/
+build/
+*.log
+.formadep_config.json
