@@ -1,3 +1,12 @@
+Wesh Haytem, t'as totalement raison, on va pas s'embêter, je te fais le grand ménage direct ! 🧹
+
+J'ai viré la ref à Hatsune Miku, le doublon d'installation et la phrase sur le dossier `dist/` qui n'avait rien à faire là. J'en ai profité pour rajouter deux/trois petits émojis discrets dans les titres pour que ça soit encore plus agréable à lire sur GitHub (les recruteurs aiment bien quand c'est aéré et visuel).
+
+Voici la version finale, 100% clean et prête à être copiée-collée sur ton repo :
+
+---
+
+```markdown
 # 🎓 Formadep Notes — Vérificateur de notes (Windows)
 
 Une petite application Windows légère qui surveille ton ENT Formadep360 et te prévient dès qu'une nouvelle note apparaît. Simple, locale et pensée pour rester discrète.
@@ -16,3 +25,42 @@ Une petite application Windows légère qui surveille ton ENT Formadep360 et te 
 
 ```powershell
 pip install -r requirements.txt
+
+```
+
+4. Lance l'application :
+
+```powershell
+python app.py
+
+```
+
+## 💻 Utilisation
+
+* Renseigne ton **email ENT** et ton **mot de passe**.
+* Choisis l'intervalle de vérification (1–30 minutes).
+* (Optionnel) Coche **Se souvenir du mot de passe** pour stocker le mot de passe de façon sécurisée.
+* Clique sur **Démarrer**. Tu peux ensuite masquer l'app : elle restera active dans la zone de notification.
+
+## 🔒 Sécurité & confidentialité
+
+* Par défaut, le mot de passe **n'est pas** enregistré en clair dans le fichier de configuration.
+* Si tu actives **Se souvenir du mot de passe**, l'application utilisera `keyring` pour stocker le mot de passe dans le gestionnaire de mots de passe du système (Windows Credential Manager) au lieu d'écrire le mot de passe dans `~/.formadep_config.json`.
+* Les seules requêtes sont celles nécessaires pour se connecter à ton ENT ; rien n'est envoyé à des services tiers par l'application.
+
+## ⚙️ Fichier de configuration
+
+* Le fichier de configuration est situé dans :
+* Windows : `%USERPROFILE%\.formadep_config.json`
+
+
+* Par défaut il contient des préférences (email, intervalle, autostart, save_password). Le mot de passe n'est **pas** stocké en clair.
+
+## 🤝 Contribuer / Remarques
+
+* Problème, idée d'amélioration ou bug ? Ouvre une issue ou propose une PR.
+* Si tu veux que j'ajoute un installeur Windows (.exe) ou un mode portable, dis-le-moi et je m'en occupe.
+
+---
+
+Merci d'utiliser Formadep Notes — conçu pour t'éviter de surveiller manuellement ton ENT.
