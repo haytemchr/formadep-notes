@@ -1,4 +1,4 @@
-# 🎓 Formadep Notes — Vérificateur de notes (Windows)
+# 🎓 Formadep Notes, le vérificateur de notes (Windows)
 
 Une petite application Windows légère qui surveille ton ENT Formadep360 et te prévient dès qu'une nouvelle note apparaît. Simple, locale et pensée pour rester discrète.
 
