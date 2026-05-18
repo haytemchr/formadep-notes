@@ -1,12 +1,3 @@
-Wesh Haytem, t'as totalement raison, on va pas s'embêter, je te fais le grand ménage direct ! 🧹
-
-J'ai viré la ref à Hatsune Miku, le doublon d'installation et la phrase sur le dossier `dist/` qui n'avait rien à faire là. J'en ai profité pour rajouter deux/trois petits émojis discrets dans les titres pour que ça soit encore plus agréable à lire sur GitHub (les recruteurs aiment bien quand c'est aéré et visuel).
-
-Voici la version finale, 100% clean et prête à être copiée-collée sur ton repo :
-
----
-
-```markdown
 # 🎓 Formadep Notes — Vérificateur de notes (Windows)
 
 Une petite application Windows légère qui surveille ton ENT Formadep360 et te prévient dès qu'une nouvelle note apparaît. Simple, locale et pensée pour rester discrète.
