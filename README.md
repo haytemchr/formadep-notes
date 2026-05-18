@@ -50,8 +50,17 @@ python app.py
 ## 🤝 Contribuer / Remarques
 
 * Problème, idée d'amélioration ou bug ? Ouvre une issue ou propose une PR.
-* Si tu veux que j'ajoute un installeur Windows (.exe) ou un mode portable, dis-le-moi et je m'en occupe.
+* Si tu veux que j'ajoute un installeur Windows (.exe), dis-le-moi et je m'en occupe.
 
----
+## 📝 Licence
 
-Merci d'utiliser Formadep Notes — conçu pour t'éviter de surveiller manuellement ton ENT.
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## 👨‍💻 Auteur
+
+Créé par **Haytem CHRYAT**.
+N'hésitez pas à laisser une ⭐ sur le repo si le projet vous plaît !
+
+
+
+Merci d'utiliser Formadep Notes, conçu pour t'éviter de surveiller manuellement ton ENT.
