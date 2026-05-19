@@ -10,10 +10,15 @@ import os
 import sys
 import winreg
 import winsound
-from win10toast import ToastNotifier
+from winotify import Notification, audio
 from PIL import Image
 import pystray
 from datetime import datetime
+import sys
+
+if sys.platform != "win32":
+    print("Formadep Notes est une application Windows uniquement.")
+    sys.exit(1)
 
 try:
     import keyring
@@ -523,26 +528,16 @@ class FormadepApp(ctk.CTk):
         self._schedule_next()
 
     def _alert_new_note(self):
-        #alerte nouvelle note son, notif et flash
         try:
-            winsound.MessageBeep(winsound.MB_ICONEXCLAMATION)
-        except Exception:
-            pass
-        # pr notif windows
-        try:
-            self.toaster.show_toast(
-                "📚 Nouvelle note !",
-                "Une nouvelle note est disponible sur Formadep.",
-                duration=6,
-                threaded=True,
-            )
-        except Exception:
-            pass
-        # on fait "ding" ou flash si la fenêtre est visible
-        try:
-            self.bell()
-        except Exception:
-            pass
+            notif = Notification(app_id="Formadep Notes",
+                                 title="📚 Nouvelle note !",
+                                 msg="Une nouvelle note est disponible sur l'ENT.",
+                                 duration="short")
+            notif.set_audio(audio.Mail, loop=False)
+            notif.show()
+        except Exception as e:
+            print(f"Erreur notif : {e}")
+            
 
     def _set_status(self, text, color):
         self.status_label.configure(text=text)
