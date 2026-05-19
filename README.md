@@ -36,7 +36,6 @@ python app.py
 ## 🔒 Sécurité & confidentialité
 
 * Par défaut, le mot de passe **n'est pas** enregistré en clair dans le fichier de configuration.
-* Si tu actives **Se souvenir du mot de passe**, l'application utilisera `keyring` pour stocker le mot de passe dans le gestionnaire de mots de passe du système (Windows Credential Manager) au lieu d'écrire le mot de passe dans `~/.formadep_config.json`.
 * Les seules requêtes sont celles nécessaires pour se connecter à ton ENT ; rien n'est envoyé à des services tiers par l'application.
 
 ## ⚙️ Fichier de configuration
@@ -50,7 +49,6 @@ python app.py
 ## 🤝 Contribuer / Remarques
 
 * Problème, idée d'amélioration ou bug ? Ouvre une issue ou propose une PR.
-* Si tu veux que j'ajoute un installeur Windows (.exe), dis-le-moi et je m'en occupe.
 
 ## 📝 Licence
 
