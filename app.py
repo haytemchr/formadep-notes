@@ -284,6 +284,34 @@ class FormadepApp(ctk.CTk):
         y = (self.winfo_screenheight() - 620) // 2
         self.geometry(f"+{x}+{y}")
 
+        # ptit raccourci clavier ctrl+shift+o+F pour déclencher manuellement la notification
+        self._chord_state = {"o_pressed": False}
+        def _on_ctrl_shift_o(event=None):
+            try:
+                self._chord_state["o_pressed"] = True
+                # reset automatique après 2s
+                self.after(2000, lambda: self._chord_state.update({"o_pressed": False}))
+            except Exception:
+                pass
+
+        def _on_key_f(event=None):
+            try:
+                if self._chord_state.get("o_pressed"):
+                    self._chord_state["o_pressed"] = False
+                    # déclencher la notif depuis le thread UI
+                    self.after(0, self._alert_new_note)
+            except Exception:
+                pass
+
+        # lier les événements globalement
+        try:
+            self.bind_all('<Control-Shift-o>', _on_ctrl_shift_o)
+            self.bind_all('<Control-Shift-O>', _on_ctrl_shift_o)
+            self.bind_all('<KeyPress-f>', _on_key_f)
+            self.bind_all('<KeyPress-F>', _on_key_f)
+        except Exception:
+            pass
+
     def _build_ui(self):
         #entete logo et status
         header = ctk.CTkFrame(self, fg_color="#1d2124", corner_radius=0)
@@ -532,6 +560,14 @@ class FormadepApp(ctk.CTk):
                                  title="📚 Nouvelle note !",
                                  msg="Une nouvelle note est disponible sur l'ENT.",
                                  duration="short")
+            # bouton qui ouvre directement la page de login de l'ENT dans le navigateur
+            try:
+                notif.add_actions(label="Ouvrir l'ENT", launch=self.scrapeur.LOGIN_URL)
+            except Exception:
+                try:
+                    notif.add_actions(label="Ouvrir l'ENT", launch=FormadepScraper.LOGIN_URL)
+                except Exception:
+                    pass
             notif.set_audio(audio.Mail, loop=False)
             notif.show()
         except Exception as e:
