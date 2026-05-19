@@ -235,7 +235,6 @@ class FormadepApp(ctk.CTk):
         self.cfg = load_config()
         self.scrapeur = FormadepScraper()
         self.last_hash = None
-        self.toaster = ToastNotifier()
         self.check_job = None
         self.tray_icon = None
         self.tray_thread = None
@@ -537,7 +536,7 @@ class FormadepApp(ctk.CTk):
             notif.show()
         except Exception as e:
             print(f"Erreur notif : {e}")
-            
+
 
     def _set_status(self, text, color):
         self.status_label.configure(text=text)
